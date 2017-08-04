@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pokemon</title>
+    <link rel="stylesheet" href="/public/stylesheets/normalize.css">
+    <link rel="stylesheet" href="/public/stylesheets/styles.css">
+    <script src="/public/javascript/main.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <main>
+      <h3><a href="/add">Add New Pokemon</a></h3>
+      <div class="grid">
+      {{ #pokemon }}
+        <div class="card">
+          <h3>{{ name }}</h3>
+          <p>Owner: {{ owner }}</p>
+          <p>Origin: {{ origin.city }}, {{ origin.country }}</p>
+          <p>Type: {{ type }}</p>
+          <p>Level: {{ level }}</p>
+          {{ ^canEvolve }}
+          <p>FINAL STAGE OF EVOLUTION</p>
+          {{ /canEvolve }}
+          <form class="" action="/delete" method="post">
+            <button type="submit" name="button" value={{ _id }}>Delete</button>
+          </form>
+          <button type="button" name="button">
+            <a href="/edit/{{ _id }}">Edit</a>
+          </button>
+        </div>
+      {{ /pokemon }}
+      </div>
+    </main>
+  </body>
+</html>

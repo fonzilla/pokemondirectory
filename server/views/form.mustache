@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/public/stylesheets/styles.css">
+  </head>
+  <body>
+    <h1>{{ title }}</h1>
+    <form class="" action={{ route }}{{ _id }} method="post">
+      <div class="formfield">
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="{{ result.name }}">
+      </div>
+      <div class="formfield">
+        <label for="origin">Origin:</label>
+        <input type="text" name="origin[city]" placeholder="City" value="{{ result.origin.city }}">
+        <input type="text" name="origin[country]" placeholder="Country" value="{{ result.origin.country }}">
+      </div>
+      {{ #typeObj }}
+      <div class="formfield">
+        <label for="type">Type:</label>
+        {{ ^water }}
+        <input type="checkbox" id="water" name="type" value="water">
+        <label for="water">Water</label>
+        {{ /water }}
+        {{ #water }}
+        <input type="checkbox" id="water" name="type" value="water" checked>
+        <label for="water">Water</label>
+        {{ /water }}
+        {{ ^fire }}
+        <input type="checkbox" id="fire" name="type" value="fire">
+        <label for="fire">Fire</label>
+        {{ /fire }}
+        {{ #fire }}
+        <input type="checkbox" id="fire" name="type" value="fire" checked>
+        <label for="fire">Fire</label>
+        {{ /fire }}
+        {{ ^electric }}
+        <input type="checkbox" id="electric" name="type" value="electric">
+        <label for="electric">Electric</label>
+        {{ /electric }}
+        {{ #electric }}
+        <input type="checkbox" id="electric" name="type" value="electric" checked>
+        <label for="electric">Electric</label>
+        {{ /electric }}
+        {{ ^normal }}
+        <input type="checkbox" id="normal" name="type" value="normal">
+        <label for="normal">Normal</label>
+        {{ /normal }}
+        {{ #normal }}
+        <input type="checkbox" id="normal" name="type" value="normal" checked>
+        <label for="normal">Normal</label>
+        {{ /normal }}
+        {{ ^flying }}
+        <input type="checkbox" id="flying" name="type" value="flying">
+        <label for="flying">Flying</label>
+        {{ /flying }}
+        {{ #flying }}
+        <input type="checkbox" id="flying" name="type" value="flying" checked>
+        <label for="flying">Flying</label>
+        {{ /flying }}
+        {{ ^bug }}
+        <input type="checkbox" id="bug" name="type" value="bug">
+        <label for="bug">Bug</label>
+        {{ /bug }}
+        {{ #bug }}
+        <input type="checkbox" id="bug" name="type" value="bug" checked>
+        <label for="bug">Bug</label>
+        {{ /bug }}
+        {{ ^psychic }}
+        <input type="checkbox" id="psychic" name="type" value="psychic">
+        <label for="psychic">Psychic</label>
+        {{ /psychic }}
+        {{ #psychic }}
+        <input type="checkbox" id="psychic" name="type" value="psychic" checked>
+        <label for="psychic">Psychic</label>
+        {{ /psychic }}
+        {{ ^grass }}
+        <input type="checkbox" id="grass" name="type" value="grass">
+        <label for="grass">Grass</label>
+        {{ /grass }}
+        {{ #grass }}
+        <input type="checkbox" id="grass" name="type" value="grass" checked>
+        <label for="grass">Grass</label>
+        {{ /grass }}
+        {{ ^poison }}
+        <input type="checkbox" id="poison" name="type" value="poison">
+        <label for="grass">Poison</label>
+        {{ /poison }}
+        {{ #poison }}
+        <input type="checkbox" id="poison" name="type" value="poison" checked>
+        <label for="grass">Poison</label>
+        {{ /poison }}
+      </div>
+      {{ /typeObj }}
+      <div class="formfield">
+        <label for="owner">Owner:</label>
+        <input type="text" name="owner" value="{{ result.owner }}">
+      </div>
+      <div class="formfield">
+        <label for="level">Level:</label>
+        <input type="text" name="level" placeholder="1-100" value={{ result.level }}>
+      </div>
+      <div class="formfield">
+        <label for="moves">Moves:</label>
+        <input type="text" name="moves" placeholder="Separate with a ',' " value="{{ result.moves }}">
+      </div>
+      <div class="formfield">
+        {{ #result.canEvolve }}
+        <input type="checkbox" id="canEvolve" name="canEvolve" checked>
+        <label for="canEvolve">Can Evolve?</label>
+        {{ /result.canEvolve }}
+        {{ ^result.canEvolve }}
+        <input type="checkbox" id="canEvolve" name="canEvolve">
+        <label for="canEvolve">Can Evolve?</label>
+        {{ /result.canEvolve }}
+      </div>
+      <div class="formfield">
+        <button type="submit" name="button">Submit</button>
+      </div>
+    </form>
+  </body>
+</html>

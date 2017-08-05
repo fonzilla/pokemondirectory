@@ -9,7 +9,10 @@
   </head>
   <body>
     <main>
+      {{ #user }}
       <h3><a href="/add">Add New Pokemon</a></h3>
+      {{ /user }}
+      <h3><a href="/login">User Login</a></h3>
       <div class="grid">
       {{ #pokemon }}
         <div class="card">
@@ -21,12 +24,14 @@
           {{ ^canEvolve }}
           <p>FINAL STAGE OF EVOLUTION</p>
           {{ /canEvolve }}
+          {{ #user }}
           <form class="" action="/delete" method="post">
             <button type="submit" name="button" value={{ _id }}>Delete</button>
           </form>
           <button type="button" name="button">
             <a href="/edit/{{ _id }}">Edit</a>
           </button>
+          {{ /user }}
         </div>
       {{ /pokemon }}
       </div>

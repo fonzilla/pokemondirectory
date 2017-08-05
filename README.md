@@ -1,7 +1,5 @@
 # Express Base App
 
-Written for the use of students at The Iron Yard.
+run `npm install`  to install dependencies
 
-## License
-
-MIT
+run `node seed` to seed database with 5 Pokémon
